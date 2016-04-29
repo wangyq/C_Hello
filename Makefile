@@ -168,6 +168,10 @@ snmp: $(OUTPUT_DIR)/snmp.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
 snmprun: snmp
 	$(BUILD_DIR)/snmp
 
+.PHONY:tcpserver
+tcpserver: $(OUTPUT_DIR)/tcpserver.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
+	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
+
 .PHONY:tcp_attack
 tcp_attack: $(OUTPUT_DIR)/tcp_attack.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
 	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)

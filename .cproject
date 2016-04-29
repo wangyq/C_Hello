@@ -48,6 +48,7 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
 		<buildTargets>
 			<target name="all" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
@@ -94,6 +95,14 @@
 				<buildCommand>make</buildCommand>
 				<buildArguments/>
 				<buildTarget>tcp_attack</buildTarget>
+				<stopOnError>true</stopOnError>
+				<useDefaultCommand>false</useDefaultCommand>
+				<runAllBuilders>true</runAllBuilders>
+			</target>
+			<target name="tcpserver" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+				<buildCommand>make</buildCommand>
+				<buildArguments/>
+				<buildTarget>tcpserver</buildTarget>
 				<stopOnError>true</stopOnError>
 				<useDefaultCommand>false</useDefaultCommand>
 				<runAllBuilders>true</runAllBuilders>
