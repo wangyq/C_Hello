@@ -9,6 +9,10 @@
 
 void test_aa()
 {
+    //char buf[1024];
+
+    //char* pChar = buf + 10;
+
 //	char msg[128];
 //
 //	printf("CurDir = %s\n", g_var.pCurDir);

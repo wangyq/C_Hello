@@ -176,6 +176,17 @@ tcpserver: $(OUTPUT_DIR)/tcpserver.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
 tcp_attack: $(OUTPUT_DIR)/tcp_attack.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
 	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
 
+.PHONY:sniffer
+sniffer: $(OUTPUT_DIR)/sniffer.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
+	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
+
+.PHONY:arp_send
+arp_send: $(OUTPUT_DIR)/arp_send.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
+	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
+
+.PHONY:arp_recv
+arp_recv: $(OUTPUT_DIR)/arp_recv.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
+	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
 	
 #.PHONY:test
 #test2: $(OUTPUT_DIR)/test2.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
