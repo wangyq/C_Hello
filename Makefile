@@ -21,7 +21,7 @@ MAIN_FILE = main
 
 # module define which act as subdirectory reside in "src" directory
 #SRC_MODULES = main conf ca comm pm utils ic reg timer 
-SRC_MODULES = main conf util timer snmp
+SRC_MODULES = main conf util timer snmp NetServerClient 
 
 #==================================================
 # Optional User define parameter
@@ -167,6 +167,11 @@ snmp: $(OUTPUT_DIR)/snmp.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
 .PHONY:snmprun
 snmprun: snmp
 	$(BUILD_DIR)/snmp
+
+.PHONY:tcp_attack
+tcp_attack: $(OUTPUT_DIR)/tcp_attack.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
+	$(LINK) $(LIB_PATH) $(OUTPUT_OBJS) $(CFLAGS) $< -o $(BUILD_DIR)/$@ $(LIBPATH) $(LIBS)
+
 	
 #.PHONY:test
 #test2: $(OUTPUT_DIR)/test2.o $(OUTPUT_DEPS) $(OUTPUT_OBJS)
