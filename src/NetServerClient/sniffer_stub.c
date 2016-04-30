@@ -23,6 +23,24 @@
 //============================
 #define MAX_BUF     2048        /* Maximum bytes fetched by a single read() */
 
+int set_nic_promisc(int sockfd, const char *nic_name)
+{
+    struct ifreq ethreq;
+    strncpy(ethreq.ifr_name, nic_name, IFNAMSIZ);
+    if( ioctl(sockfd, SIOCGIFFLAGS, &ethreq) == -1 )
+    {
+        perror ("Error: Could not retrieve the flags from the device.\n");
+        exit (1);
+    }
+    ethreq.ifr_flags |= IFF_PROMISC;
+    if( ioctl(sockfd, SIOCSIFFLAGS, &ethreq) == -1 )
+    {
+        perror ("Error: Could not set flag IFF_PROMISC");
+        exit (1);
+    }
+    return 0;
+}
+
 int raw_init (const char *device)
 {
     struct ifreq ifr;
@@ -78,6 +96,8 @@ int main_sniffer_stub(int argc, char **argv) {
         perror("socket");
         exit(1);
     }
+
+    //set_nic_promisc(sock,"eth0");
 
     //sock = raw_init("eth0");
 
