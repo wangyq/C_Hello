@@ -61,7 +61,7 @@ int raw_init (const char *device)
     /* Get the current flags that the device might have */
     if (ioctl (raw_socket, SIOCGIFFLAGS, &ifr) == -1)
     {
-        perror ("Error: Could not retrive the flags from the device.\n");
+        perror ("Error: Could not retrieve the flags from the device.\n");
         exit (1);
     }
 

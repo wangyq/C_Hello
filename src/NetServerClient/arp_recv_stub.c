@@ -72,7 +72,7 @@ int main_stub_arp_recv(int argc,char** argv){
         eth=(struct ethhdr*)buf;
         arp=(struct ether_arp*)(buf+14);
 
-        printf("Dest MAC:");
+        printf("Receive %d bytes. Dest MAC:", n);
         for(i=0;i<ETH_ALEN;i++){
             printf("%02X-",eth->h_dest[i]);
         }

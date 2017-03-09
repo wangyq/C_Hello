@@ -19,7 +19,7 @@
 
 //int main(int argc,char** argv){
 int main_stub_arp_send(int argc,char** argv){
-    int skfd,n;
+    int skfd ,n;
     char buf[BUFLEN]={0};
     struct ether_header *eth;
     struct ether_arp *arp;
@@ -98,6 +98,7 @@ int main_stub_arp_send(int argc,char** argv){
     toaddr.sll_family = PF_PACKET;
     n=sendto(skfd,buf,BUFLEN,0,(struct sockaddr*)&toaddr,sizeof(toaddr));
 
+    printf("Send %d bytes to network.",n);
     close(skfd);
     return 0;
 }
